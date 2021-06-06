@@ -1,23 +1,17 @@
 name: Build and test
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  build:
+  build and test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v1
       - name: Build
         run: make build
-  start:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v1
       - name: Start
         run: make run
